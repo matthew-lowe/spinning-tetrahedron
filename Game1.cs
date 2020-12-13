@@ -48,8 +48,6 @@ namespace Primatives
 
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
-
             _basicEffect = new BasicEffect(GraphicsDevice);
             
             // Vertex positions and colours
