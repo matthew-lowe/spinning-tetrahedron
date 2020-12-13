@@ -1,6 +1,4 @@
-﻿using System;
-using System.Numerics;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Vector3 = Microsoft.Xna.Framework.Vector3;
@@ -12,7 +10,6 @@ namespace Primatives
     public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
 
         private VertexBuffer _vertexBuffer;
         private IndexBuffer _indexBuffer;
@@ -34,7 +31,7 @@ namespace Primatives
 
         protected override void Initialize()
         {
-            this.Window.Title = "poggers";
+            this.Window.Title = "spin boi";
             
             _world = Matrix.CreateTranslation(Vector3.Zero);
             _view = Matrix.CreateLookAt(new Vector3(1, 1, 3), Vector3.Zero, Vector3.Up);
