@@ -22,17 +22,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95e02d83-b06a-4ccc-b57e-fdf560b3fae0" name="Default Changelist" comment="removed again spritebatch lol">
-      <change afterPath="$PROJECT_DIR$/render/Cube.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/render/Shape.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Primatives.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Primatives.dir/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="95e02d83-b06a-4ccc-b57e-fdf560b3fae0" name="Default Changelist" comment="now spinning cube boi lol">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Primatives.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Primatives.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game1.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Primatives.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Primatives.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Primatives.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Primatives.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Primatives.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Primatives.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Primatives.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Primatives.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Primatives.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Primatives.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/render/Cube.cs" beforeDir="false" afterPath="$PROJECT_DIR$/render/Cube.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/render/Shape.cs" beforeDir="false" afterPath="$PROJECT_DIR$/render/Shape.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,9 +49,9 @@
       <list>
         <option value="$PROJECT_DIR$/app.manifest" />
         <option value="$PROJECT_DIR$/Shape.cs" />
-        <option value="$PROJECT_DIR$/render/Cube.cs" />
-        <option value="$PROJECT_DIR$/render/Shape.cs" />
         <option value="$PROJECT_DIR$/Game1.cs" />
+        <option value="$PROJECT_DIR$/render/Shape.cs" />
+        <option value="$PROJECT_DIR$/render/Cube.cs" />
       </list>
     </option>
   </component>
@@ -104,7 +102,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607871945277</updated>
       <workItem from="1607871952094" duration="11064000" />
-      <workItem from="1608930492506" duration="3121000" />
+      <workItem from="1608930492506" duration="5546000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1607882642705</created>
@@ -127,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607887925399</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="now spinning cube boi lol">
+      <created>1608933724654</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1608933724654</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,37 +156,38 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="removed spritebatch lol" />
     <MESSAGE value="removed again spritebatch lol" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed again spritebatch lol" />
+    <MESSAGE value="now spinning cube boi lol" />
+    <option name="LAST_COMMIT_MESSAGE" value="now spinning cube boi lol" />
   </component>
   <component name="WindowStateProjectService">
     <state x="100" y="123" width="1240" height="600" key="DiffContextDialog" timestamp="1607888116185">
       <screen x="0" y="23" width="1440" height="800" />
     </state>
     <state x="100" y="123" width="1240" height="600" key="DiffContextDialog/0.23.1440.800@0.23.1440.800" timestamp="1607888116185" />
-    <state width="1398" height="53" key="GridCell.Tab.0.bottom" timestamp="1608932941930">
+    <state width="1398" height="161" key="GridCell.Tab.0.bottom" timestamp="1608934993734">
       <screen x="0" y="23" width="1440" height="800" />
     </state>
-    <state width="1398" height="53" key="GridCell.Tab.0.bottom/0.23.1440.800@0.23.1440.800" timestamp="1608932941930" />
-    <state width="1398" height="53" key="GridCell.Tab.0.center" timestamp="1608932941930">
+    <state width="1398" height="161" key="GridCell.Tab.0.bottom/0.23.1440.800@0.23.1440.800" timestamp="1608934993734" />
+    <state width="1398" height="161" key="GridCell.Tab.0.center" timestamp="1608934993730">
       <screen x="0" y="23" width="1440" height="800" />
     </state>
-    <state width="1398" height="53" key="GridCell.Tab.0.center/0.23.1440.800@0.23.1440.800" timestamp="1608932941930" />
-    <state width="1398" height="53" key="GridCell.Tab.0.left" timestamp="1608932941929">
+    <state width="1398" height="161" key="GridCell.Tab.0.center/0.23.1440.800@0.23.1440.800" timestamp="1608934993730" />
+    <state width="1398" height="161" key="GridCell.Tab.0.left" timestamp="1608934993720">
       <screen x="0" y="23" width="1440" height="800" />
     </state>
-    <state width="1398" height="53" key="GridCell.Tab.0.left/0.23.1440.800@0.23.1440.800" timestamp="1608932941929" />
-    <state width="1398" height="53" key="GridCell.Tab.0.right" timestamp="1608932941930">
+    <state width="1398" height="161" key="GridCell.Tab.0.left/0.23.1440.800@0.23.1440.800" timestamp="1608934993720" />
+    <state width="1398" height="161" key="GridCell.Tab.0.right" timestamp="1608934993733">
       <screen x="0" y="23" width="1440" height="800" />
     </state>
-    <state width="1398" height="53" key="GridCell.Tab.0.right/0.23.1440.800@0.23.1440.800" timestamp="1608932941930" />
+    <state width="1398" height="161" key="GridCell.Tab.0.right/0.23.1440.800@0.23.1440.800" timestamp="1608934993733" />
     <state x="100" y="123" width="1240" height="600" key="VCS.FileHistoryDialog" timestamp="1607888116187">
       <screen x="0" y="23" width="1440" height="800" />
     </state>
     <state x="100" y="123" width="1240" height="600" key="VCS.FileHistoryDialog/0.23.1440.800@0.23.1440.800" timestamp="1607888116187" />
-    <state x="320" y="163" key="Vcs.Push.Dialog.v2" timestamp="1607887929201">
+    <state x="320" y="163" key="Vcs.Push.Dialog.v2" timestamp="1608933731247">
       <screen x="0" y="23" width="1440" height="800" />
     </state>
-    <state x="320" y="163" key="Vcs.Push.Dialog.v2/0.23.1440.800@0.23.1440.800" timestamp="1607887929201" />
+    <state x="320" y="163" key="Vcs.Push.Dialog.v2/0.23.1440.800@0.23.1440.800" timestamp="1608933731247" />
     <state x="542" y="324" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1607882611757">
       <screen x="0" y="23" width="1440" height="800" />
     </state>

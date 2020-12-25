@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Primatives.render;
 using Vector3 = Microsoft.Xna.Framework.Vector3;
 
 // ReSharper disable PossibleLossOfFraction
@@ -50,7 +51,7 @@ namespace Primatives
                 Exit();
 
             float rot = 0.01f;
-            testShape.World = testShape.World * Matrix.CreateRotationY(rot);
+            testShape.World = Matrix.CreateRotationY(rot) * testShape.World;
             
             base.Update(gameTime);
         }
@@ -68,7 +69,7 @@ namespace Primatives
             foreach (EffectPass pass in testShape.BasicEffect.CurrentTechnique.Passes)
             {
                 pass.Apply();
-                GraphicsDevice.DrawUserIndexedPrimitives<VertexPositionColor>(PrimitiveType.LineList, testShape.Vertices, 0, 8, testShape.Indices, 0, 12);
+                GraphicsDevice.DrawUserIndexedPrimitives<VertexPositionColor>(PrimitiveType.LineList, testShape.Vertices, 0, testShape.NumVertices, testShape.Indices, 0, testShape.NumPrimatives);
             }
 
             base.Draw(gameTime);

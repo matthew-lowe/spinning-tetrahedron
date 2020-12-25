@@ -1,22 +1,31 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Primatives
+namespace Primatives.render
 {
     public class Cube : Shape
     {
         public Cube(GraphicsDevice graphicsDevice, Matrix world, Matrix view, Matrix projection) : base(graphicsDevice, world, view, projection)
         {
-            _vertices = new VertexPositionColor[8];
-            _vertices[0] = new VertexPositionColor(new Vector3(0.5f, -0.5f, 0.5f), Color.Red);
-            _vertices[1] = new VertexPositionColor(new Vector3(0.5f, -0.5f, -0.5f), Color.Blue);
-            _vertices[2] = new VertexPositionColor(new Vector3(-0.5f, -0.5f, 0.5f), Color.Yellow);
-            _vertices[3] = new VertexPositionColor(new Vector3(-0.5f, -0.5f, -0.5f), Color.Green);
-            _vertices[4] = new VertexPositionColor(new Vector3(0.5f, 0.5f, 0.5f), Color.Red);
-            _vertices[5] = new VertexPositionColor(new Vector3(-0.5f, 0.5f, 0.5f), Color.Blue);
-            _vertices[6] = new VertexPositionColor(new Vector3(0.5f, 0.5f, -0.5f), Color.Yellow);
-            _vertices[7] = new VertexPositionColor(new Vector3(-0.5f, 0.5f, -0.5f), Color.Green);
+            float px = Position.X;
+            float py = Position.Y;
+            float pz = Position.Z;
+
+            float sx = Size.X;
+            float sy = Size.Y;
+            float sz = Size.Z;
             
+            _vertices = new VertexPositionColor[8];
+            _vertices[0] = new VertexPositionColor(new Vector3(px + sx/2, py - sy/2, pz + sz/2), Color.Red);
+            _vertices[1] = new VertexPositionColor(new Vector3(px + sx/2, py - sy/2, pz - sz/2), Color.Blue);
+            _vertices[2] = new VertexPositionColor(new Vector3(px - sx/2, py - sy/2, pz + sz/2), Color.Yellow);
+            _vertices[3] = new VertexPositionColor(new Vector3(px - sx/2, py - sy/2, pz - sz/2), Color.Green);
+            _vertices[4] = new VertexPositionColor(new Vector3(px + sx/2, py + sy/2, pz + sz/2), Color.Red);
+            _vertices[5] = new VertexPositionColor(new Vector3(px - sx/2, py + sy/2, pz + sz/2), Color.Blue);
+            _vertices[6] = new VertexPositionColor(new Vector3(px + sx/ 2, py + sy/2, pz - sz/2), Color.Yellow);
+            _vertices[7] = new VertexPositionColor(new Vector3(px - sx/2, py + sy/2, pz - sz/2), Color.Green);
+            
+            // Initialise the vertex buffer and set the vertices
             VertexBuffer = new VertexBuffer(_graphicsDevice, typeof(VertexPositionColor), 8, BufferUsage.WriteOnly);
             VertexBuffer.SetData<VertexPositionColor>(_vertices);
             

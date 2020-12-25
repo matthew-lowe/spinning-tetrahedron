@@ -7,12 +7,12 @@ namespace Primatives
     public abstract class Shape
     {
         protected BasicEffect _basicEffect;
+
+        public short NumVertices => (short) _vertices.Length;
+        public short NumPrimatives => (short) (_indices.Length / 2);
         
-        protected short _numVertices;
-        protected short _numPrimatives;
-        
-        public short NumVertices => _numVertices;
-        public short NumPrimatives => _numPrimatives;
+        public Vector3 Size { get; set; }
+        public Vector3 Position { get; set; }
 
         public VertexBuffer VertexBuffer { get; set; }
         public IndexBuffer IndexBuffer { get; set; }
@@ -68,6 +68,9 @@ namespace Primatives
             _graphicsDevice = graphicsDevice;
             _basicEffect = new BasicEffect(_graphicsDevice) {VertexColorEnabled = true};
 
+            Size = new Vector3(1, 1.5f, 1);
+            Position = new Vector3(0, 0, 0);
+            
             World = world;
             View = view;
             Projection = projection;
