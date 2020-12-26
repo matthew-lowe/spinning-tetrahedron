@@ -10,12 +10,13 @@ namespace Primatives
 
         public short NumVertices => (short) _vertices.Length;
         public short NumPrimatives => (short) (_indices.Length / 2);
-        
-        public Vector3 Size { get; set; }
-        public Vector3 Position { get; set; }
 
         public VertexBuffer VertexBuffer { get; set; }
         public IndexBuffer IndexBuffer { get; set; }
+
+        public Vector3 Size { get; set; }
+        public Vector3 Origin { get; set; }
+        
         public BasicEffect BasicEffect => _basicEffect;
 
         protected GraphicsDevice _graphicsDevice;
@@ -68,12 +69,28 @@ namespace Primatives
             _graphicsDevice = graphicsDevice;
             _basicEffect = new BasicEffect(_graphicsDevice) {VertexColorEnabled = true};
 
-            Size = new Vector3(1, 1.5f, 1);
-            Position = new Vector3(0, 0, 0);
+            Size = new Vector3(1, 1, 1);
+            Origin = new Vector3(0, 0, 0);
             
             World = world;
             View = view;
             Projection = projection;
         }
+        public void Render()
+        {
+            _graphicsDevice.SetVertexBuffer(VertexBuffer);
+            _graphicsDevice.Indices = IndexBuffer;
+            
+            RasterizerState rasterizerState = new RasterizerState {CullMode = CullMode.CullClockwiseFace, MultiSampleAntiAlias = true};
+            _graphicsDevice.RasterizerState = rasterizerState;
+            
+            foreach (EffectPass pass in BasicEffect.CurrentTechnique.Passes)
+            {
+                pass.Apply();
+                _graphicsDevice.DrawUserIndexedPrimitives<VertexPositionColor>(PrimitiveType.LineList, Vertices, 0, NumVertices, Indices, 0, NumPrimatives);
+            }
+        }
+
+        public abstract void CalculateVertices();
     }
 }

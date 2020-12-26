@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.Numerics;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Primatives.render;
@@ -12,7 +14,9 @@ namespace Primatives
     {
         private readonly GraphicsDeviceManager _graphics;
 
-        private Cube testShape;
+        public Matrix GlobalWorld;
+        public Matrix GlobalView;
+        public Matrix GlobalProjection;
 
         public Game1()
         {
@@ -25,18 +29,26 @@ namespace Primatives
         {
             this.Window.Title = "spin boi";
             
-            Matrix world = Matrix.CreateTranslation(Vector3.Zero);
-            Matrix view = Matrix.CreateLookAt(new Vector3(1, 1, 3), Vector3.Zero, Vector3.Up);
-            Matrix projection = Matrix.CreatePerspectiveFieldOfView(
+            GlobalWorld = Matrix.CreateTranslation(Vector3.Zero);
+            GlobalView = Matrix.CreateLookAt(new Vector3(1, 1, 3), Vector3.Zero, Vector3.Up);
+            GlobalProjection = Matrix.CreatePerspectiveFieldOfView(
                 MathHelper.ToRadians(45), 
                 _graphics.PreferredBackBufferWidth / _graphics.PreferredBackBufferHeight,
                 0.01f,
                 100f);
 
-            testShape = new Cube(GraphicsDevice, world, view, projection);
-            
             _graphics.PreferMultiSampling = true;
-            
+
+            for (int row = 0; row < 10; row++)
+            {
+                for (int col = 0; col < 10; col++)
+                {
+                    var cube = new Cube(GraphicsDevice, GlobalWorld, GlobalView, GlobalProjection);
+                    cube.World *= Matrix.CreateTranslation(new Vector3(row + 0.3f * row, col + 0.3f * col, 0) + new Vector3(-5, -5, -5));
+                    ShapeManager.AddShape(cube);
+                }
+            }
+
             base.Initialize();
         }
 
@@ -50,8 +62,12 @@ namespace Primatives
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            float rot = 0.01f;
-            testShape.World = Matrix.CreateRotationY(rot) * testShape.World;
+            ShapeManager.CalculateVertices();
+
+            foreach (var shape in ShapeManager.Shapes)
+            {
+                shape.World = Matrix.CreateRotationY(0.01f) * shape.World;
+            }
             
             base.Update(gameTime);
         }
@@ -59,18 +75,8 @@ namespace Primatives
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-
-            GraphicsDevice.SetVertexBuffer(testShape.VertexBuffer);
-            GraphicsDevice.Indices = testShape.IndexBuffer;
-
-            RasterizerState rasterizerState = new RasterizerState {CullMode = CullMode.CullClockwiseFace, MultiSampleAntiAlias = true};
-            GraphicsDevice.RasterizerState = rasterizerState;
-
-            foreach (EffectPass pass in testShape.BasicEffect.CurrentTechnique.Passes)
-            {
-                pass.Apply();
-                GraphicsDevice.DrawUserIndexedPrimitives<VertexPositionColor>(PrimitiveType.LineList, testShape.Vertices, 0, testShape.NumVertices, testShape.Indices, 0, testShape.NumPrimatives);
-            }
+            
+            ShapeManager.RenderShapes();
 
             base.Draw(gameTime);
         }
